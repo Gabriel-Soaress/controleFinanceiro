@@ -56,13 +56,13 @@ function Dashboard({usuarioId}) {
                 const headers = { 'user-id': usuarioId };
 
                 // --- PARTE 1: BUSCAR CATEGORIAS ---
-                const respostaCat = await fetch('http://localhost:3333/categorias', { headers });
+                const respostaCat = await fetch('https://finceiroapi.onrender.com/categorias', { headers });
                 if (!respostaCat.ok) throw new Error('Erro ao buscar categorias');
                 const dadosCat = await respostaCat.json();
                 setListaCategorias(dadosCat);
 
                 // --- PARTE 2: BUSCAR CONTAS ---
-                const respostaContas = await fetch('http://localhost:3333/contas', { headers });
+                const respostaContas = await fetch('https://finceiroapi.onrender.com/contas', { headers });
                 if (!respostaContas.ok) throw new Error('Erro ao buscar contas');
                 const dadosContasBrutos = await respostaContas.json();
 
@@ -78,7 +78,7 @@ function Dashboard({usuarioId}) {
                 setListaContas(contasTraduzidas);
 
                 // --- PARTE 4: CARTEIRAS ---
-                const res3 = await fetch('http://localhost:3333/carteiras', { headers });
+                const res3 = await fetch('https://finceiroapi.onrender.com/carteiras', { headers });
                 if (res3.ok) {
                     const dadosCarteiras = await res3.json();
                     setMinhasCarteiras(dadosCarteiras);
@@ -100,7 +100,7 @@ function Dashboard({usuarioId}) {
             if (!usuarioId) return;
 
             try {
-                const url = `http://localhost:3333/movimentacoes?inicio=${filtros.inicio}&fim=${filtros.fim}`;
+                const url = `https://finceiroapi.onrender.com/movimentacoes?inicio=${filtros.inicio}&fim=${filtros.fim}`;
 
                 // AQUI TAMBÉM PRECISA DO HEADER AGORA!
                 const res = await fetch(url, { headers: { 'user-id': usuarioId } });
@@ -136,7 +136,7 @@ function Dashboard({usuarioId}) {
 
     const criarConta = async (novaConta) => {
         try {
-            const resposta = await fetch('http://localhost:3333/contas', {
+            const resposta = await fetch('https://finceiroapi.onrender.com/contas', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -165,7 +165,7 @@ function Dashboard({usuarioId}) {
     const excluirConta = async (id) =>{
         try{
             // DELETE também precisa de header pra saber se a conta é sua
-            const resposta = await fetch(`http://localhost:3333/contas/${id}`,{
+            const resposta = await fetch(`https://finceiroapi.onrender.com/contas/${id}`,{
                 method: 'DELETE',
                 headers: { 'user-id': usuarioId }
             });
@@ -179,7 +179,7 @@ function Dashboard({usuarioId}) {
 
     const editarConta = async (contaEditada) => {
         try {
-            const resposta = await fetch(`http://localhost:3333/contas/${contaEditada.id}`,{
+            const resposta = await fetch(`https://finceiroapi.onrender.com/contas/${contaEditada.id}`,{
                 method: 'PUT',
                 headers:{
                     'Content-Type': 'application/json',
@@ -207,7 +207,7 @@ function Dashboard({usuarioId}) {
 
     const adicionarSaldo = async (dadosDoModal) => {
         try {
-            const resposta = await fetch('http://localhost:3333/movimentacoes/entrada',{
+            const resposta = await fetch('https://finceiroapi.onrender.com/movimentacoes/entrada',{
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json',
@@ -218,7 +218,7 @@ function Dashboard({usuarioId}) {
 
             if(!resposta.ok) throw new Error('Erro ao depositar');
 
-            const resCarteiras = await fetch('http://localhost:3333/carteiras', { headers: { 'user-id': usuarioId } });
+            const resCarteiras = await fetch('https://finceiroapi.onrender.com/carteiras', { headers: { 'user-id': usuarioId } });
             setMinhasCarteiras(await resCarteiras.json());
 
             // Atualizar resumo também
@@ -237,7 +237,7 @@ function Dashboard({usuarioId}) {
 
     const efetuarPagamento = async (dados) => {
         try {
-            const resposta = await fetch('http://localhost:3333/contas/pagar', {
+            const resposta = await fetch('https://finceiroapi.onrender.com/contas/pagar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -248,7 +248,7 @@ function Dashboard({usuarioId}) {
 
             if (!resposta.ok) throw new Error('Erro ao processar pagamento');
 
-            const resContas = await fetch('http://localhost:3333/contas', { headers: { 'user-id': usuarioId } });
+            const resContas = await fetch('https://finceiroapi.onrender.com/contas', { headers: { 'user-id': usuarioId } });
             const dadosContas = await resContas.json();
 
             const contasTraduzidas = dadosContas.map(item => ({
@@ -259,7 +259,7 @@ function Dashboard({usuarioId}) {
             }));
             setListaContas(contasTraduzidas);
 
-            const resCarteiras = await fetch('http://localhost:3333/carteiras', { headers: { 'user-id': usuarioId } });
+            const resCarteiras = await fetch('https://finceiroapi.onrender.com/carteiras', { headers: { 'user-id': usuarioId } });
             setMinhasCarteiras(await resCarteiras.json());
 
         } catch (erro) {
@@ -271,7 +271,7 @@ function Dashboard({usuarioId}) {
         if (!window.confirm("Deseja desfazer este pagamento?")) return;
 
         try {
-            const resposta = await fetch('http://localhost:3333/contas/estornar', {
+            const resposta = await fetch('https://finceiroapi.onrender.com/contas/estornar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -281,7 +281,7 @@ function Dashboard({usuarioId}) {
             });
 
             if (resposta.ok) {
-                const resContas = await fetch('http://localhost:3333/contas', { headers: { 'user-id': usuarioId } });
+                const resContas = await fetch('https://finceiroapi.onrender.com/contas', { headers: { 'user-id': usuarioId } });
                 const dadosContas = await resContas.json();
 
                 const contasTraduzidas = dadosContas.map(item => ({
@@ -292,7 +292,7 @@ function Dashboard({usuarioId}) {
                 }));
                 setListaContas(contasTraduzidas);
 
-                const resCarteiras = await fetch('http://localhost:3333/carteiras', { headers: { 'user-id': usuarioId } });
+                const resCarteiras = await fetch('https://finceiroapi.onrender.com/carteiras', { headers: { 'user-id': usuarioId } });
                 setMinhasCarteiras(await resCarteiras.json());
 
                 alert("Estorno realizado!");

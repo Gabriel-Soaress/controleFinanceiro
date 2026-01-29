@@ -13,7 +13,7 @@ function CardLogin({ aoFazerLogin }) { // Recebemos a função do pai
         setErro(''); // Limpa erros antigos
 
         try {
-            const resposta = await fetch('http://localhost:3333/login', {
+            const resposta = await fetch('https://finceiroapi.onrender.com/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, senha })
