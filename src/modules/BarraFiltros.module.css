@@ -1,0 +1,102 @@
+.containerBarraFiltros {
+    background-color: #242424; /* Fundo geral escuro (igual ao do body, provavelmente) */
+    width: 100%;
+    max-width: 1200px; /* Alinha com a largura do BalanceCard */
+    margin: 1rem auto; /* Espaço em cima e em baixo */
+    padding: 1rem;
+    border-radius: 16px;/* Espaço interno vertical */
+
+    display: flex;
+    align-items: center; /* Alinha todos verticalmente no centro */
+    gap: 1rem; /* Espaço entre os elementos */
+    flex-wrap: wrap; /* Se a tela for pequena, quebra linha */
+}
+
+/* --- DATAS --- */
+.grupoDatas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.textoSeparador {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Wrapper para estilizar o input date */
+.wrapperInputData {
+    position: relative;
+}
+
+.campoData {
+    background-color: #333333;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Hackzinho para o ícone de calendário nativo ficar branco (funciona na maioria dos navegadores modernos) */
+.campoData::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* --- CATEGORIA (SELECT) --- */
+.campoSelecao {
+    background-color: #333333;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase; /* Deixa o texto em CAIXA ALTA */
+}
+
+/* --- BUSCA (INPUT TEXTO) --- */
+.campoBusca {
+    background-color: #333333;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+
+    /* O SEGREDO: Faz esse campo crescer e ocupar o espaço vazio */
+    flex-grow: 1;
+    min-width: 200px; /* Impede que fique pequeno demais */
+}
+
+.campoBusca::placeholder {
+    color: #666666;
+}
+
+/* --- BOTÃO --- */
+.botaoFiltrar {
+    background-color: #009e2a; /* Verde */
+    color: #ffffff;
+    border: none;
+    border-radius: 50px; /* Borda bem redonda */
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: lowercase; /* Texto em minúsculo conforme imagem */
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre ícone e texto */
+    transition: background-color 0.2s;
+}
+
+.botaoFiltrar:hover {
+    background-color: #00b330;
+}

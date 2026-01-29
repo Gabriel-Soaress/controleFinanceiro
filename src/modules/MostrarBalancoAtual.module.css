@@ -1,0 +1,109 @@
+.cardContainer {
+    background-color: #242424; /* Fundo escuro igual ao Login */
+    width: 100%;
+    /* max-width deixa ele bonito em telas grandes, mas expande em pequenas */
+    max-width: 1200px;
+    margin: 2rem auto; /* Centraliza na tela */
+    padding: 2rem;
+    border-radius: 16px;
+
+    /* Flexbox para colocar Despesa de um lado e Caixa do outro */
+    display: flex;
+    justify-content: space-around; /* Espaçamento igual */
+    align-items: flex-start; /* Alinha no topo */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- REGRAS GERAIS PARA AS DUAS SEÇÕES --- */
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza texto e valores */
+    gap: 0.5rem; /* Espaço entre o título "DESPESA" e o Valor */
+    position: relative;
+    width: 45%; /* Cada lado ocupa quase metade do card */
+}
+
+.label {
+    color: #888888; /* Cinza do texto pequeno */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- ESTILOS ESPECÍFICOS (DESPESA) --- */
+.valorDespesa {
+    font-size: 2.5rem; /* Fonte Grande */
+    color: #ffffff;
+    font-weight: 400;
+
+    /* A linha vermelha embaixo */
+    border-bottom: 4px solid #b30000;
+    padding-bottom: 5px;
+    width: 100%; /* A linha ocupa toda a largura disponível da seção */
+    text-align: center;
+}
+
+/* --- ESTILOS ESPECÍFICOS (CAIXA) --- */
+.valorCaixa {
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: 400;
+
+    /* A linha verde embaixo */
+    border-bottom: 4px solid #009e2a;
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Container para alinhar o Valor do Caixa com o botão (+) */
+.caixaRow {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o número e o botão + */
+    width: 100%;
+    justify-content: center;
+}
+
+/* --- A LINHA DIVISÓRIA VERTICAL --- */
+.divisor {
+    width: 1px;
+    background-color: #444; /* Cinza bem sutil */
+    align-self: stretch; /* Estica a linha da altura do pai */
+    margin: 0 10px;
+}
+
+/* --- BOTÕES --- */
+
+/* Botão Verde de Adicionar (+) */
+.btnAdd {
+    background: none;
+    border: none;
+    color: #009e2a; /* Verde Neon */
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+    padding: 0;
+}
+
+.btnAdd:hover {
+    color: #00ff44;
+    transform: scale(1.1); /* Aumenta um pouquinho ao passar o mouse */
+}
+
+/* Botão Pequeno de Carteiras (em baixo) */
+.btnWallets {
+    background: none;
+    border: none;
+    color: #cccccc;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: color 0.2s;
+}
+
+.btnWallets:hover {
+    color: white;
+}

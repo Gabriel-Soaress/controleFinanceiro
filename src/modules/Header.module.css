@@ -1,0 +1,26 @@
+.Header {
+    width: 100%;
+
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.botaoSair {
+    background-color: #009e2a;
+    color: white;
+    border: none;
+    width: 5%; /* Botão também precisa encher a largura se quiser igual aos inputs */
+    padding: 0.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.botaoSair:hover {
+    background-color: #00b330;
+}

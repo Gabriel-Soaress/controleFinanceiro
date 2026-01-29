@@ -1,0 +1,103 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Caixa Pequena */
+.modalBox {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 400px;
+    position: relative;
+    border: 1px solid #333;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.titulo {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.botaoFechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.botaoFechar:hover { color: white; }
+
+/* --- ESTILOS DA LISTA --- */
+.listaCarteiras {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.itemCarteira {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2b2b2b;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    transition: background-color 0.2s;
+}
+
+.itemCarteira:hover {
+    background-color: #333333;
+}
+
+.nomeCarteira {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.iconeCarteira {
+    color: #888888;
+    font-size: 1.1rem;
+}
+
+.valorCarteira {
+    color: #009e2a;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.totalCarteiras {
+    margin-top: 25px;
+    text-align: center;
+    color: #888888;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+    font-size: 0.9rem;
+}
+
+.totalCarteiras b {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-left: 5px;
+}

@@ -1,0 +1,105 @@
+.card {
+    background-color: #242424;
+    width: 100%;
+    max-width: 400px;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+
+    /* FLEXBOX PARA CENTRALIZAR TUDO */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os filhos (títulos, inputs) horizontalmente */
+    justify-content: center;
+    gap: 1.5rem;
+
+    /* Centraliza o card na tela se o pai for flex */
+    margin: auto;
+}
+
+.title {
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    text-align: center; /* Garante que o texto fique no meio */
+}
+
+/* O CONTAINER DO INPUT */
+.inputGroup {
+    width: 100%; /* OBRIGATÓRIO: Faz o container esticar até a borda do padding do card */
+    position: relative;
+    display: flex; /* Garante que o input dentro obedeça */
+}
+
+/* OS INPUTS */
+.input {
+    width: 100%; /* OBRIGATÓRIO: O input preenche todo o espaço do inputGroup */
+
+    /* A MÁGICA DO TAMANHO IGUAL */
+    box-sizing: border-box; /* Isso faz o padding contar DENTRO do tamanho, não fora */
+
+    background-color: #333333;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.input::placeholder {
+    color: #888888;
+}
+
+.input:focus {
+    box-shadow: 0 0 0 2px #009e2a66;
+}
+
+/* CORREÇÃO DA SENHA */
+.inputPassword {
+    /* Mesmo com esse padding extra, o 'box-sizing: border-box' lá em cima impede que ele cresça */
+    padding-right: 3.5rem;
+}
+
+/* ÍCONE */
+.iconSenha {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Não precisa definir width/height fixos, use font-size */
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    /* CORREÇÃO DA COR */
+    color: #888888; /* Cinza claro */
+    transition: color 0.2s;
+
+    /* Removemos o filter: invert(1) pois agora controlamos a cor direto */
+}
+
+.iconSenha:hover {
+    color: #ffffff; /* Fica branco ao passar o mouse */
+}
+
+/* BOTÃO */
+.button {
+    background-color: #009e2a;
+    color: white;
+    border: none;
+    width: 40%; /* Botão também precisa encher a largura se quiser igual aos inputs */
+    padding: 0.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #00b330;
+}
