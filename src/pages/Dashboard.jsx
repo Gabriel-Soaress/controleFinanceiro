@@ -5,7 +5,7 @@ import BalanceCard from '../components/MostrarBalancoAtual';
 import BarraFiltros from '../components/BarraFiltros';
 import ResumoFiltros from '../components/ResumoFiltros';
 import TabelaContas from '../components/TabelaContas';
-import Header from "../components/Header";
+
 
 // IMPORTAÇÃO DOS 3 MODAIS
 import ModalPagamento from '../components/modais/ModalPagamento';
